@@ -21,6 +21,7 @@ class GlobalState extends Component {
   }
 
   addProductToCart = (product) => {
+    console.log("adding product");
     let currentCart = [...this.state.cart];
 
     let found = false;
