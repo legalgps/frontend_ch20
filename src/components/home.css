@@ -1,0 +1,10 @@
+.home-page {
+    min-height: 600px;
+    background-color: #e8e9ea;
+
+}
+
+.home-page h1 {
+    text-align: center;
+    color: #0095ff;
+}
