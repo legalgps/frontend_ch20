@@ -42,8 +42,25 @@ class GlobalState extends Component {
   };
 
   removeProductFromCart = (productId) => {
-    console.log("TODO: remove product");
+    // let copy = [...this.state.cart];
+
+    let copy = this.state.cart.filter((prod) => prod._id !== productId);
+    this.setState({ cart: copy });
+
+    //opt 1 - new array
+
+    //     let newCart = [];
+    //     for (let i = 0; i < copy.length; i++) {
+    //       let item = copy[i];
+
+    //       if (item._id !== productId) {
+    //         newCart.push(item);
+    //       }
+    //     }
+
+    //     this.setState({ cart: newCart });
+    //   };
+    // }
   };
 }
-
 export default GlobalState;

@@ -21,7 +21,7 @@ class Item extends Component {
         <h5>{this.props.data.title}</h5>
 
         <label>Total ${this.getTotal()}</label>
-        <label>Price ${this.props.data.price.toFixed(2)}</label>
+        <label>Price ${(this.props.data.price * 1).toFixed(2)}</label>
 
         <div className="item-controls">
           <QuantityPicker onChange={this.handleQuantityChange}></QuantityPicker>

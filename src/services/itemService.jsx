@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // import Item from "../components/item";
 
 var catalog = [
@@ -87,16 +89,21 @@ var catalog = [
 class ItemService {
   //in this you can have methods
 
-  getCatalog() {
+  async getCatalog() {
+    let response = await axios.get("http://127.0.0.1:5000/api/catalog");
+    return response.data;
+
     //we'll cover the next two lines in FSDI 109
     //put the logic to call a server
     //and retrieve an array of items or products (whatever you call them)
 
     //return mock data
-    return catalog;
+    // return catalog;
   }
 
-  saveItem(item) {}
+  async saveItem(item) {
+    await axios.post("http://127.0.0.1:5000/api/catalog", item);
+  }
 
   getItemDetails(id) {}
 }
