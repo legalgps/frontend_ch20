@@ -13,6 +13,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import"font-awesome/css/font-awesome.min.css";
 
 import { BrowserRouter, Route, Switch} from "react-router-dom";
+import OrderPlaced from "./components/orderPlaced";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/about" exact component={About}></Route>
         <Route path="/admin" exact component={Admin}></Route>
         <Route path="/cart" exact component={Cart}></Route>
+        <Route path="/order-saved" exact component={OrderPlaced}></Route>
      </Switch>
 
       <Footer></Footer>
