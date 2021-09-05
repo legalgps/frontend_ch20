@@ -1,0 +1,14 @@
+.order-history-record{
+    border: 1px solid #e6e6e6;
+    background-color: #fafafa;
+    padding: 10px 15px;
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.order-history-record label {
+    flex:1;
+}

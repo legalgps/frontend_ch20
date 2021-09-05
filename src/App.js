@@ -14,6 +14,7 @@ import"font-awesome/css/font-awesome.min.css";
 
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 import OrderPlaced from "./components/orderPlaced";
+import HistoryPurchase from "./components/history";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/admin" exact component={Admin}></Route>
         <Route path="/cart" exact component={Cart}></Route>
         <Route path="/order-saved" exact component={OrderPlaced}></Route>
+        <Route path="/purchase-history" exact component={HistoryPurchase}></Route>
      </Switch>
 
       <Footer></Footer>

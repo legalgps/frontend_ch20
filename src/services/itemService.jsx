@@ -1,116 +1,41 @@
 import axios from "axios";
+const ServerUrl = "http://127.0.0.1:5000";
 
 // import Item from "../components/item";
 
-var catalog = [
-  {
-    _id: "234234234234",
-    title: "Trademarks 101",
-    category: "IP",
-    price: 99.0,
-    image: "trademarks_product.png", //image name corresponds to image in images/products folder
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "36256275",
-    title: "Copyrights 101",
-    category: "IP",
-    price: 79,
-    image: "trademarks_product.png",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "236257689",
-    title: "LLC",
-    category: "Corporate",
-    price: 99,
-    image: "LLC.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "34680089675",
-    title: "Corporations",
-    category: "Corporate",
-    price: 99.0,
-    image: "corporations.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "4563847243",
-    title: "Nonprofit",
-    category: "Corporate",
-    price: 99,
-    image: "Nonprofits.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "45738356356",
-    title: "Patent",
-    category: "IP",
-    price: 99,
-    image: "Patents.jpeg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "457382224689",
-    title: "Trade Secret",
-    category: "IP",
-    price: 99,
-    image: "tradesecrets-new.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "78784563547",
-    title: "Contracts",
-    category: "General",
-    price: 99,
-    image: "contracts.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about trademarks!",
-  },
-  {
-    _id: "3567497456345622",
-    title: "Hiring",
-    category: "General",
-    price: 99,
-    image: "hiring.jpg",
-    minimum: 3, //never less than 3
-    description: "Coolest course in the whole wide world about hiring!",
-  },
-];
-
 class ItemService {
   async getCatalog() {
-    let response = await axios.get("http://127.0.0.1:5000/api/catalog");
+    let response = await axios.get(ServerUrl + "/api/catalog");
     return response.data;
   }
 
   async saveItem(item) {
-    await axios.post("http://127.0.0.1:5000/api/catalog", item);
+    await axios.post(ServerUrl + "/api/catalog", item);
   }
 
   getItemDetails(id) {}
 
   async validateCouponCode(code) {
-    let response = await axios.get(
-      "http://127.0.0.1:5000/api/couponCodes/" + code
-    );
+    let response = await axios.get(ServerUrl + "/api/couponCodes/" + code);
     return response.data;
   }
 
   async submitOrder(order) {
-    let response = await axios.post("http://127.0.0.1:5000/api/orders", order);
+    let response = await axios.post(ServerUrl + "/api/orders", order);
     if (response.status === 200) {
       return response.data;
     } else {
       console.error("Error submitting order", response.data);
+      return null;
+    }
+  }
+
+  async getUserOrders(userId) {
+    let response = await axios.get(ServerUrl + "/api/orders" + userId);
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error("Error getting user orders", response.data);
       return null;
     }
   }

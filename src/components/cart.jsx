@@ -65,6 +65,7 @@ class Cart extends Component {
       userId: 123,
       couponCode: this.state.couponCode,
       products: this.context.cart,
+      createOn: new Date(),
     };
 
     let service = new ItemService();
